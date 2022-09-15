@@ -1,5 +1,16 @@
 public class Main {
     public static void main(String[] args) {
+        {
+            TreeNode a = TreeNodeMaker.makeNode(new Integer[] {2,3,1,3,1,null,1});
+            it(2, new PseudoPalindromicPaths().pseudoPalindromicPaths(a));
+
+            TreeNode b = TreeNodeMaker.makeNode(new Integer[] {2,1,1,1,3,null,null,null,null,null,1});
+            it(1, new PseudoPalindromicPaths().pseudoPalindromicPaths(b));
+
+            TreeNode c = TreeNodeMaker.makeNode(new Integer[] {9});
+            it(1, new PseudoPalindromicPaths().pseudoPalindromicPaths(c));
+        }
+
         if (false)
         {
             TreeNode root = TreeNodeMaker.makeNode(new Integer[] {2,1,1,1,3,null,null,null,null,null,1});
