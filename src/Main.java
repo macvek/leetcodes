@@ -1,5 +1,26 @@
 public class Main {
     public static void main(String[] args) {
+        if (false)
+        {
+            TreeNode root = TreeNodeMaker.makeNode(new Integer[] {2,1,1,1,3,null,null,null,null,null,1});
+            it(2, root.val);
+            it(1, root.left.val);
+            it(1, root.right.val);
+            it(1, root.left.left.val);
+            it(3, root.left.right.val);
+            it(1, root.left.right.right.val);
+
+        }
+        if (false)
+        {
+            TreeNode root = TreeNodeMaker.makeNode(new Integer[]{2, 3, 1, 3, 1, null, 1});
+            it(2, root.val);
+            it(3, root.left.val);
+            it(3, root.left.left.val);
+            it(1, root.right.val);
+            it(1, root.left.right.val);
+        }
+        if (false)
         {
             var t = new FractionAddAndSub();
             it("0/1", t.fractionAddition("-1/2+1/2"));
