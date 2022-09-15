@@ -1,20 +1,31 @@
-import java.util.*;
-
 public class PseudoPalindromicPaths {
 
     static class Payload {
-        Payload prev;
-        Integer value;
+        boolean[] parity = new boolean[9];
 
-        public Payload(Payload prev, Integer value) {
-            this.prev = prev;
-            this.value = value;
+        public Payload() {
+        }
+
+        public Payload(Payload prev, int next) {
+            System.arraycopy(prev.parity, 0, parity, 0, 9);
+            parity[next-1] = !parity[next-1];
+        }
+
+        public int applies() {
+            int sum = 0;
+            for (int i=0;i<parity.length;i++) {
+                if (!parity[i]) {
+                    ++sum;
+                }
+            };
+
+            return (sum >= 8) ? 1 : 0;
         }
 
     }
 
     public int pseudoPalindromicPaths (TreeNode root) {
-        return walkWithPayload(root, new Payload(null, null));
+        return walkWithPayload(root, new Payload());
     }
 
     public int walkWithPayload(TreeNode root, Payload trail) {
@@ -24,32 +35,11 @@ public class PseudoPalindromicPaths {
         Payload p = new Payload(trail, root.val);
 
         if (root.left == null && root.right == null) {
-            return applies(p);
+            return p.applies();
         }
         else {
             return walkWithPayload(root.left, p) + walkWithPayload(root.right, p);
         }
     }
-
-    public int applies(Payload p) {
-        HashMap<Integer, Integer> counts = new HashMap<>();
-        Payload next = p;
-        while(next != null && next.value != null) {
-            var each = next.value;
-            counts.putIfAbsent(each, 0);
-            counts.put(each, counts.get(each)+1);
-            next = next.prev;
-        }
-
-        int passed = 0;
-        for (Integer count : counts.values()) {
-            if (count % 2 == 0) {
-                ++passed;
-            }
-        }
-
-        return counts.values().size() - passed <= 1 ? 1 : 0;
-    }
-
 
 }

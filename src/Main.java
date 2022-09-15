@@ -9,6 +9,12 @@ public class Main {
 
             TreeNode c = TreeNodeMaker.makeNode(new Integer[] {9});
             it(1, new PseudoPalindromicPaths().pseudoPalindromicPaths(c));
+
+            Integer[] intTab1= IntArrayFromFile.load("C:\\Users\\macve\\Desktop\\Prototyping\\IntTab1.txt");
+            TreeNode d = TreeNodeMaker.makeNode(intTab1);
+            long l = System.currentTimeMillis();
+            new PseudoPalindromicPaths().pseudoPalindromicPaths(d);
+            System.out.println(System.currentTimeMillis() - l);
         }
 
         if (false)
