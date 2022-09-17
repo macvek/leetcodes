@@ -1,5 +1,22 @@
 public class Main {
     public static void main(String[] args) {
+
+        {
+            System.out.println(new MyHeap(new int[] { 1 }));
+            System.out.println(new MyHeap(new int[] { 1,2 }));
+            System.out.println(new MyHeap(new int[] { 1,2,-1 }));
+            System.out.println(new MyHeap(new int[] { 1,1,1 }));
+            System.out.println(new MyHeap(new int[] { 1,3,2 }));
+
+        }
+
+        if (false)
+        {
+            MyHeap heap = new MyHeap(new int[] { 1,5,1,6,12,64124,612,18,-123,291,-12315,1,0,123});
+
+        }
+
+        if (false)
         {
             TreeNode a = TreeNodeMaker.makeNode(new Integer[] {2,3,1,3,1,null,1});
             it(2, new PseudoPalindromicPaths().pseudoPalindromicPaths(a));
