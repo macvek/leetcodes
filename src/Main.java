@@ -6,12 +6,37 @@ public class Main {
             System.out.println(new MyHeap(new int[] { 1,2 }));
             System.out.println(new MyHeap(new int[] { 1,2,-1 }));
             System.out.println(new MyHeap(new int[] { 1,31,1 }));
-            MyHeap x = new MyHeap(new int[]{1, 3, 2, 5, 4, 6, 71, 82, 13, 25, 56, 67, 78, 19, 111, -21});
+            int[] src = {1, 3, 2, 5, 4, 6, 71, 82, 13, 25, 56, 67, 78, 19, 111, -21};
+            MyHeap x = new MyHeap(src);
             System.out.println(x);
+            MyHeap empty = new MyHeap();
+            for (int i=0; i<src.length;i++) {
+                empty.add(src[src.length-1-i]);
+            }
+            System.out.println(empty);
+
+            x.dumpValue(111);
+            empty.dumpValue(111);
+            for (int i=0;i<src.length;i++) {
+                System.out.println("seek for: "+src[i]+" at "+x.findValue(src[i]));
+            }
 
             x.delete(0);
             System.out.println(x);
 
+            x.delete(4);
+            System.out.println(x);
+
+            x.add(100000000);
+            x.add(-100);
+            x.dumpValue(-100);
+            x.add(12);
+            System.out.println("12 at "+x.findValue(12));
+            System.out.println(x);
+
+            x.dumpValue(100000000);
+            x.dumpValue(82);
+            x.dumpValue(78);
         }
 
         if (false)
