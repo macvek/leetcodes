@@ -13,6 +13,24 @@ public class ReverseList {
         ListNode reversed = tail_reverse(longList, null);
         System.out.println(reversed);
 
+        System.out.println(tail_iter(new ListNode(10,99,22,33,44)));
+
+    }
+
+    public static ListNode tail_iter(ListNode list) {
+        ListNode head = list;
+        ListNode ret = null;
+
+        while(head != null) {
+            ListNode next = head.next;
+
+            head.next = ret;
+            ret = head;
+
+            head = next;
+        }
+
+        return ret;
     }
 
     public static ListNode tail_reverse(ListNode list, ListNode acc) {
