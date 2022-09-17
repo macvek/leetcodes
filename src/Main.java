@@ -1,7 +1,34 @@
 public class Main {
     public static void main(String[] args) {
 
+        {
+            ListNode t = new ReverseEvenLengthGroups().reverseEvenLengthGroups(new ListNode(5,2,6,3,9,1,7,3,8,4));
+            System.out.println(t);
 
+            ListNode u = new ReverseEvenLengthGroups().reverseEvenLengthGroups(new ListNode(5,2,6,3,9,1,7,3,4,1,5,2));
+            System.out.println(u);
+
+            ListNode w = new ReverseEvenLengthGroups().reverseEvenLengthGroups(new ListNode(5));
+            System.out.println(w);
+
+            ListNode x = new ReverseEvenLengthGroups().reverseEvenLengthGroups(new ListNode(5,2));
+            System.out.println(x);
+
+            ListNode y = new ReverseEvenLengthGroups().reverseEvenLengthGroups(new ListNode(5,2,4));
+            System.out.println(y);
+
+        }
+
+        if (false)
+        {
+            ListNode first = new ListNode(1,2,3,4,5,6,7,8);
+            ListNode last = null;
+            ListNode t = new ReverseEvenLengthGroups().rotate(first, last);
+            System.out.println(t);
+        }
+
+
+        if (false)
         {
             NestedInteger i = new NestedInteger(new Object[] { new Object[0] });
 
@@ -13,6 +40,7 @@ public class Main {
             System.out.println("EOF");
         }
 
+        if (false)
         {
             NestedInteger i = new NestedInteger(new Object[] { 10,11,12,13,14,15, new Object[] {
                     22,23,24,25, new Object[] { new Object[] { 41,42,new Object[] {51,52 }}}
@@ -200,6 +228,15 @@ public class Main {
 
     private static void it(String a, String b) {
         if (a.equals(b)) {
+            System.out.println("OK....");
+        }
+        else {
+            System.out.println("WRONG. "+a+" != "+b);
+        }
+    }
+
+    private static void it(double a, double b) {
+        if (a == b) {
             System.out.println("OK....");
         }
         else {
