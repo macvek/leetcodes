@@ -5,8 +5,12 @@ public class Main {
             System.out.println(new MyHeap(new int[] { 1 }));
             System.out.println(new MyHeap(new int[] { 1,2 }));
             System.out.println(new MyHeap(new int[] { 1,2,-1 }));
-            System.out.println(new MyHeap(new int[] { 1,1,1 }));
-            System.out.println(new MyHeap(new int[] { 1,3,2 }));
+            System.out.println(new MyHeap(new int[] { 1,31,1 }));
+            MyHeap x = new MyHeap(new int[]{1, 3, 2, 5, 4, 6, 71, 82, 13, 25, 56, 67, 78, 19, 111, -21});
+            System.out.println(x);
+
+            x.delete(0);
+            System.out.println(x);
 
         }
 

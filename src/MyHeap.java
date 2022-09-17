@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 public class MyHeap {
 
     private Integer[] store;
+    private int minHeapHit;
 
     public MyHeap(int[] values) {
         store = new Integer[values.length];
@@ -17,16 +18,38 @@ public class MyHeap {
 
     @Override
     public String toString() {
-        return Arrays.asList(store).stream().map(x -> null == x ? "null" : x.toString()).collect(Collectors.joining(","));
+        return "HITS:"+minHeapHit+"\t"+Arrays.asList(store).stream().map(x -> null == x ? "null" : x.toString()).collect(Collectors.joining(","));
+    }
+
+    void delete(int idx) {
+        minHeapHit = 0;
+        if (idx == store.length-1) {
+            shrink();
+        }
+        else {
+            store[idx] = store[store.length - 1];
+            shrink();
+            minHeap(idx/2);
+        }
+
+
+    }
+
+    private void shrink() {
+        Integer[] shrunk = new Integer[store.length-1];
+        System.arraycopy(store, 0, shrunk, 0, store.length-1);
+        store = shrunk;
     }
 
     void heapify() {
-        for (int i= (store.length-1 )/2; i--> 0;) {
+        minHeapHit = 0;
+        for (int i= (store.length-1 )/2; i >= 0;i--) {
             minHeap(i);
         }
     }
 
     void minHeap(int idx) {
+        ++minHeapHit;
         int nIdx = idx;
         int leftIdx = 2*idx+1;
         int rightIdx = 2*idx+2;
@@ -48,39 +71,4 @@ public class MyHeap {
         }
     }
 
-    public void put(int v) {
-        int idx = placeFor(v);
-        if (store[idx] != null) {
-            //...
-        }
-        else {
-            store[idx] = v;
-        }
-    }
-
-    private int placeFor(int v) {
-        int i=0;
-        for(;;) {
-            Integer lookup = store[i];
-            if (lookup == null) {
-                return i;
-            }
-            else if (v <= lookup) {
-                i = 2*i+1;
-            }
-            else {
-                i = 2*i+2;
-            }
-
-            if( i>= store.length ) {
-                extendStore(i+1);
-            }
-        }
-    }
-
-    private void extendStore(int newSize) {
-        Integer[] nextStore = new Integer[newSize];
-        System.arraycopy(store, 0, nextStore, 0, store.length);
-        store = nextStore;
-    }
 }
