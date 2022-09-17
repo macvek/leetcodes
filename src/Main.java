@@ -1,6 +1,32 @@
 public class Main {
     public static void main(String[] args) {
 
+
+        {
+            NestedInteger i = new NestedInteger(new Object[] { new Object[0] });
+
+            NestedIterator iterator = new NestedIterator(i.getList());
+            while(iterator.hasNext()) {
+                System.out.println(iterator.next());
+            }
+
+            System.out.println("EOF");
+        }
+
+        {
+            NestedInteger i = new NestedInteger(new Object[] { 10,11,12,13,14,15, new Object[] {
+                    22,23,24,25, new Object[] { new Object[] { 41,42,new Object[] {51,52 }}}
+            , 28 }});
+
+            NestedIterator iterator = new NestedIterator(i.getList());
+            while(iterator.hasNext()) {
+                System.out.println(iterator.next());
+            }
+
+            System.out.println("EOF");
+        }
+
+        if (false)
         {
             System.out.println(new MyHeap(new int[] { 1 }));
             System.out.println(new MyHeap(new int[] { 1,2 }));
