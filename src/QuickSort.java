@@ -18,7 +18,7 @@ public class QuickSort {
             return -1;
         }
 
-        int pivotValue = values[(end - begin) / 2];
+        int pivotValue = values[(end + begin) / 2];
 
         int left = begin;
         int right = end;
