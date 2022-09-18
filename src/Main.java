@@ -1,6 +1,62 @@
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class Main {
     public static void main(String[] args) {
 
+        if (false)
+        {
+            QuickSort qs = new QuickSort();
+            int[] values;
+            values = new int[] {0};
+            it(-1, qs.partition(values,0,values.length-1));
+            drawList(values);
+
+            values = new int[] {0,1};
+            it (0, qs.partition(values, 0, values.length-1));
+            drawList(values);
+
+            values = new int[] {-1,0,1};
+            it (1, qs.partition(values, 0, values.length-1));
+            drawList(values);
+
+            values = new int[] {4,4,4,4};
+            it (1, qs.partition(values, 0, values.length-1));
+            drawList(values);
+
+            values = new int[] {4,3,2,1};
+            it (1, qs.partition(values, 0, values.length-1));
+            drawList(values);
+
+            values = new int[] {5,4,3,2,3};
+            it (2, qs.partition(values, 0, values.length-1));
+            drawList(values);
+        }
+
+
+        {
+            QuickSort qs = new QuickSort();
+            int[] values;
+            values= new int[] {0};
+
+            qs.quickSort(values);
+            drawList(values);
+
+            values= new int[] {0,1};
+            qs.quickSort(values);
+            drawList(values);
+
+            values= new int[] {-1, 1,0};
+            qs.quickSort(values);
+            drawList(values);
+
+            values= new int[] {5,1,6,2,4,2,7};
+            qs.quickSort(values);
+            drawList(values);
+
+        }
+
+        if (false)
         {
             ListNode t = new ReverseEvenLengthGroups().reverseEvenLengthGroups(new ListNode(5,2,6,3,9,1,7,3,8,4));
             System.out.println(t);
@@ -215,6 +271,10 @@ public class Main {
             it(1994, r.romanToInt("MCMXCIV"));
         }
 
+    }
+
+    private static void drawList(int[] values) {
+        System.out.println(IntStream.of(values).boxed().map(Object::toString).collect(Collectors.joining(",")));
     }
 
     private static void it(boolean a, boolean b) {
