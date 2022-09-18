@@ -3,37 +3,6 @@ import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
-
-        if (false)
-        {
-            QuickSort qs = new QuickSort();
-            int[] values;
-            values = new int[] {0};
-            it(-1, qs.partition(values,0,values.length-1));
-            drawList(values);
-
-            values = new int[] {0,1};
-            it (0, qs.partition(values, 0, values.length-1));
-            drawList(values);
-
-            values = new int[] {-1,0,1};
-            it (1, qs.partition(values, 0, values.length-1));
-            drawList(values);
-
-            values = new int[] {4,4,4,4};
-            it (1, qs.partition(values, 0, values.length-1));
-            drawList(values);
-
-            values = new int[] {4,3,2,1};
-            it (1, qs.partition(values, 0, values.length-1));
-            drawList(values);
-
-            values = new int[] {5,4,3,2,3};
-            it (2, qs.partition(values, 0, values.length-1));
-            drawList(values);
-        }
-
-
         {
             QuickSort qs = new QuickSort();
             int[] values;
@@ -50,7 +19,7 @@ public class Main {
             qs.quickSort(values);
             drawList(values);
 
-            values= new int[] {5,1,6,2,4,2,7};
+            values= new int[] {4,5,1,6,2,4,2,7,4};
             qs.quickSort(values);
             drawList(values);
 

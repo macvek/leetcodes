@@ -1,43 +1,32 @@
 public class QuickSort {
-    public void quickSort(int[] values) {
-        quickSortPart(values, 0, values.length -1);
+    public void quickSort(int[] v) {
+        quickSort(v, 0, v.length-1);
     }
 
-    public void quickSortPart(int[] values, int begin, int end) {
-        int splitIdx = partition(values, begin, end);
-        if (splitIdx == -1) {
+    public void quickSort(int[] v, int start, int end) {
+        if (start >= end) {
             return;
         }
 
-        quickSortPart(values, begin, splitIdx);
-        quickSortPart(values, splitIdx+1, end);
-    }
+        int pivotIdx = (start + end) / 2;
+        int pivot = v[pivotIdx];
 
-    public int partition(int[] values, int begin, int end) {
-        if (end == begin) {
-            return -1;
-        }
+        swap(v, end, pivotIdx);
 
-        int pivotValue = values[(end + begin) / 2];
+        int repl = start;
+        for (;v[repl] < pivot;repl++);
 
-        int left = begin;
-        int right = end;
-
-        for (;;) {
-            for (; left < right && values[left] < pivotValue; ++left);
-            for (; left < right && values[right] >= pivotValue; --right);
-
-            if (left < right) {
-                swap(values, left, right);
-                ++left;
-                --right;
-            }
-            else {
-                break;
+        for (int seeker = repl+1;seeker<end;seeker++) {
+            if (v[seeker] < pivot) {
+                swap(v, seeker, repl);
+                ++repl;
             }
         }
 
-        return right;
+        swap(v, repl, end);
+
+        quickSort(v, start, repl - 1);
+        quickSort(v, repl+1, end);
     }
 
     private void swap(int[] from, int a, int b) {
