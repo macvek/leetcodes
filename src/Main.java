@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -22,6 +23,8 @@ public class Main {
             values= new int[] {4,5,1,6,2,4,2,7,4};
             qs.quickSort(values);
             drawList(values);
+
+
 
         }
 
